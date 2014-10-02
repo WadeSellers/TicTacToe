@@ -9,6 +9,16 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (strong, nonatomic) IBOutlet UIView *LabelOne;
+@property (strong, nonatomic) IBOutlet UIView *LabelTwo;
+@property (strong, nonatomic) IBOutlet UIView *LabelThree;
+@property (strong, nonatomic) IBOutlet UIView *LabelFour;
+@property (strong, nonatomic) IBOutlet UIView *LabelFive;
+@property (strong, nonatomic) IBOutlet UIView *LabelSix;
+@property (strong, nonatomic) IBOutlet UIView *LabelSeven;
+@property (strong, nonatomic) IBOutlet UIView *LabelEight;
+@property (strong, nonatomic) IBOutlet UIView *LabelNine;
+@property (weak, nonatomic) IBOutlet UILabel *whichPlayerLabel;
 
 @end
 
@@ -16,12 +26,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) findLabelUsingPoint: (CGPoint)point {
+    CGPoint point = [panGesture locationInView:self.view];
 }
+
+- (IBAction)onLabelTapped:(id)sender {
+}
+
 
 @end
