@@ -29,7 +29,7 @@
     [super viewDidLoad];
 
     self.theCurrentPlayer.text = @"X";
-    [self.theCurrentPlayer setTextColor:[UIColor redColor]];
+    [self.theCurrentPlayer setTextColor:[UIColor blueColor]];
 
     self.labels = [NSArray arrayWithObjects:
                         self.labelOne,
@@ -57,16 +57,18 @@
             label.text = self.theCurrentPlayer.text;
             if ([self.theCurrentPlayer.text isEqualToString:@"X"])
             {
-                [self.theCurrentPlayer setTextColor:[UIColor blueColor]];
+                [self.theCurrentPlayer setTextColor:[UIColor redColor]];
                 self.theCurrentPlayer.text = @"O";
+                [self didYouWin];
             }
             else
             {
-                [self.theCurrentPlayer setTextColor:[UIColor redColor]];
+                [self.theCurrentPlayer setTextColor:[UIColor blueColor]];
                 self.theCurrentPlayer.text = @"X";
+                [self didYouWin];
             }
         }
-        [self didYouWin];
+        //[self didYouWin];
     }
 }
 
@@ -126,10 +128,32 @@
         self.theCurrentPlayer.text = @"X";
     }
     alertView.title = [self.theCurrentPlayer.text stringByAppendingString:@"'s WON!"];
-    [alertView addButtonWithTitle:@"Awesome!"];
+    [alertView addButtonWithTitle:@"Play Again!"];
+    alertView.tag = 100;
     [alertView show];
+
+
 }
 
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag == 100) {
+        [self resetTheBoard];
+    }
+}
+
+- (void) resetTheBoard
+{
+    self.labelOne.text = @"1 ";
+    self.labelTwo.text = @"2 ";
+    self.labelThree.text = @"3 ";
+    self.labelFour.text = @"4 ";
+    self.labelFive.text = @"5 ";
+    self.labelSix.text = @"6 ";
+    self.labelSeven.text = @"7 ";
+    self.labelEight.text = @"8 ";
+    self.labelNine.text = @"9 ";
+    self.theCurrentPlayer.text = @"X";
+}
 
 
 
