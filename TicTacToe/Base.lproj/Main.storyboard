@@ -70,8 +70,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="whichPlayerLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkG-Lv-q6u">
-                                <rect key="frame" x="140" y="398" width="135" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="theCurrentPlayer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkG-Lv-q6u">
+                                <rect key="frame" x="140" y="398" width="129" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -94,6 +94,7 @@
                         <outlet property="labelSix" destination="Qsy-4D-iS3" id="vKM-cv-DcM"/>
                         <outlet property="labelThree" destination="1cA-oy-241" id="sMO-J2-nCk"/>
                         <outlet property="labelTwo" destination="zq5-Dd-tc6" id="Ec2-Ud-VdU"/>
+                        <outlet property="theCurrentPlayer" destination="FkG-Lv-q6u" id="g6d-xK-K7w"/>
                         <outlet property="whichPlayerLabel" destination="FkG-Lv-q6u" id="tMF-MS-qsD"/>
                     </connections>
                 </viewController>

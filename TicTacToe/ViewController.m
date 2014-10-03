@@ -18,16 +18,17 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelSeven;
 @property (weak, nonatomic) IBOutlet UILabel *labelEight;
 @property (weak, nonatomic) IBOutlet UILabel *labelNine;
-@property (weak, nonatomic) IBOutlet UILabel *whichPlayerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *theCurrentPlayer;
 @property NSArray *labels;
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
-    self.whichPlayerLabel.text = @"X";
+    self.theCurrentPlayer.text = @"X";
 
     self.labels = [NSArray arrayWithObjects:
                         self.labelOne,
@@ -39,29 +40,31 @@
                         self.labelSeven,
                         self.labelEight,
                         self.labelNine, nil];
-
 }
 
-//If the point where you tapped falls within a label, change the label to X or O
+//We are going to use fast enumeration to go through the array of UILabels and check each one to
+//see if the tappedPoint falls in the label.frame
+//If it does, change the label text to either an X or an O
 
-
-    //[self updateTicTacToeBoardArray:counter];
-    //return tappedLabel;
-
-
-- (void) findLabelUsingPoint:(CGPoint)tappedPoint {
-    if (CGRectContainsPoint(self.labelOne.frame, tappedPoint)) {
-        self.labelOne.text = self.whichPlayerLabel.text;
-        if ([self.whichPlayerLabel.text containsString:@"X"]) {
-            self.whichPlayerLabel.text = @"O";
-        }else if ([self.whichPlayerLabel.text containsString:@"O"]) {
-            self.whichPlayerLabel.text = @"X";
-
+- (void) findLabelUsingPoint:(CGPoint)tappedPoint
+{
+    for(UILabel *label in self.labels)
+    {
+        if (CGRectContainsPoint(label.frame, tappedPoint))
+        {
+            label.text = self.theCurrentPlayer.text;
+            if ([self.theCurrentPlayer.text isEqualToString:@"X"])
+            {
+                self.theCurrentPlayer.text = @"O";
+            }
+            else
+            {
+                self.theCurrentPlayer.text = @"X";
+            }
         }
+
     }
 }
-
-
 
 //When I Tap, the point will be saved in tappedPoint
 //tappedPoint will then be send to the findLabelUsingPoint method
@@ -69,11 +72,8 @@
 - (IBAction)onLabelTapped:(UITapGestureRecognizer *)tapGesture {
     CGPoint tappedPoint = [tapGesture locationInView:self.view];
     [self findLabelUsingPoint:tappedPoint];
-    //NSLog(@"The point I tapped = %@", [NSValue valueWithCGPoint:tappedPoint]);
 }
 
-//I need to change the player after a label is tapped
-//tapping a label tells us that the first player's move is done
 
 
 
