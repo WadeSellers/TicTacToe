@@ -94,8 +94,7 @@
                         <outlet property="labelSix" destination="Qsy-4D-iS3" id="vKM-cv-DcM"/>
                         <outlet property="labelThree" destination="1cA-oy-241" id="sMO-J2-nCk"/>
                         <outlet property="labelTwo" destination="zq5-Dd-tc6" id="Ec2-Ud-VdU"/>
-                        <outlet property="theCurrentPlayer" destination="FkG-Lv-q6u" id="g6d-xK-K7w"/>
-                        <outlet property="whichPlayerLabel" destination="FkG-Lv-q6u" id="tMF-MS-qsD"/>
+                        <outlet property="theCurrentPlayer" destination="FkG-Lv-q6u" id="oAc-cR-QJW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
