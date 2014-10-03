@@ -9,15 +9,15 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-@property (strong, nonatomic) IBOutlet UIView *LabelOne;
-@property (strong, nonatomic) IBOutlet UIView *LabelTwo;
-@property (strong, nonatomic) IBOutlet UIView *LabelThree;
-@property (strong, nonatomic) IBOutlet UIView *LabelFour;
-@property (strong, nonatomic) IBOutlet UIView *LabelFive;
-@property (strong, nonatomic) IBOutlet UIView *LabelSix;
-@property (strong, nonatomic) IBOutlet UIView *LabelSeven;
-@property (strong, nonatomic) IBOutlet UIView *LabelEight;
-@property (strong, nonatomic) IBOutlet UIView *LabelNine;
+@property (weak, nonatomic) IBOutlet UILabel *labelOne;
+@property (weak, nonatomic) IBOutlet UILabel *labelTwo;
+@property (weak, nonatomic) IBOutlet UILabel *labelThree;
+@property (weak, nonatomic) IBOutlet UILabel *labelFour;
+@property (weak, nonatomic) IBOutlet UILabel *labelFive;
+@property (weak, nonatomic) IBOutlet UILabel *labelSix;
+@property (weak, nonatomic) IBOutlet UILabel *labelSeven;
+@property (weak, nonatomic) IBOutlet UILabel *labelEight;
+@property (weak, nonatomic) IBOutlet UILabel *labelNine;
 @property (weak, nonatomic) IBOutlet UILabel *whichPlayerLabel;
 
 @end
@@ -30,14 +30,17 @@
 
 }
 
-//- (void) findLabelUsingPoint: (CGPoint)point {
-//    //CGPoint tapPoint
-//}
+- (void) findLabelUsingPoint:(CGPoint)tappedPoint {
+    if (CGRectContainsPoint(self.labelOne.frame, tappedPoint)) {
+        self.labelOne.text = @"X";
+    }
+}
+
 
 - (IBAction)onLabelTapped:(UITapGestureRecognizer *)tapGesture {
-    CGPoint point = [tapGesture locationInView:self.view];
-//    [self findLabelUsingPoint:myPoint];
-    NSLog(@"The point I tapped = %@", [NSValue valueWithCGPoint:point]);
+    CGPoint tappedPoint = [tapGesture locationInView:self.view];
+    [self findLabelUsingPoint:tappedPoint];
+    //NSLog(@"The point I tapped = %@", [NSValue valueWithCGPoint:tappedPoint]);
 }
 
 
