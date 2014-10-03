@@ -45,11 +45,10 @@
 //If the point where you tapped falls within a label, change the label to X or O
 
 
-}
     //[self updateTicTacToeBoardArray:counter];
     //return tappedLabel;
 
-/*
+
 - (void) findLabelUsingPoint:(CGPoint)tappedPoint {
     if (CGRectContainsPoint(self.labelOne.frame, tappedPoint)) {
         self.labelOne.text = self.whichPlayerLabel.text;
@@ -62,7 +61,7 @@
     }
 }
 
-*/
+
 
 //When I Tap, the point will be saved in tappedPoint
 //tappedPoint will then be send to the findLabelUsingPoint method

@@ -101,6 +101,7 @@
                 <tapGestureRecognizer id="VlD-Yt-zjT">
                     <connections>
                         <action selector="onLabelTapped:" destination="vXZ-lx-hvc" id="THv-TP-7jm"/>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="B83-Hh-9U5"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
