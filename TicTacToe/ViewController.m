@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *labelOne;
 @property (weak, nonatomic) IBOutlet UILabel *labelTwo;
 @property (weak, nonatomic) IBOutlet UILabel *labelThree;
@@ -114,13 +114,21 @@
     [self findLabelUsingPoint:tappedPoint];
 }
 
-//You Won Method
 - (void) youWon
 {
-    NSLog(@"youWon");
+    UIAlertView *alertView = [[UIAlertView alloc] init];
+    alertView.delegate = self;
+    if ([self.theCurrentPlayer.text isEqualToString:@"X"]) {
+        self.theCurrentPlayer.text = @"O";
+    }
+    else
+    {
+        self.theCurrentPlayer.text = @"X";
+    }
+    alertView.title = [self.theCurrentPlayer.text stringByAppendingString:@"'s WON!"];
+    [alertView addButtonWithTitle:@"Awesome!"];
+    [alertView show];
 }
-
-
 
 
 
