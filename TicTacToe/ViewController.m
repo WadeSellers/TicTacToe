@@ -27,13 +27,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+
 }
 
-- (void) findLabelUsingPoint: (CGPoint)point {
-    CGPoint point = [panGesture locationInView:self.view];
-}
+//- (void) findLabelUsingPoint: (CGPoint)point {
+//    //CGPoint tapPoint
+//}
 
-- (IBAction)onLabelTapped:(id)sender {
+- (IBAction)onLabelTapped:(UITapGestureRecognizer *)tapGesture {
+    CGPoint point = [tapGesture locationInView:self.view];
+//    [self findLabelUsingPoint:myPoint];
+    NSLog(@"The point I tapped = %@", [NSValue valueWithCGPoint:point]);
 }
 
 
