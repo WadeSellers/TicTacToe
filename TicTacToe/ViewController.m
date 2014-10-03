@@ -66,11 +66,45 @@
                 self.theCurrentPlayer.text = @"X";
             }
         }
-
+        [self didYouWin];
     }
 }
 
-
+- (void) didYouWin
+{
+    if ((self.labelOne.text == self.labelTwo.text) && (self.labelTwo.text == self.labelThree.text))
+    {
+        [self youWon];
+    }
+    if ((self.labelFour.text == self.labelFive.text) && (self.labelFive.text == self.labelSix.text))
+    {
+        [self youWon];
+    }
+    if ((self.labelSeven.text == self.labelEight.text) && (self.labelEight.text == self.labelNine.text))
+    {
+        [self youWon];
+    }
+    if ((self.labelOne.text == self.labelFour.text) && (self.labelFour.text == self.labelSeven.text))
+    {
+        [self youWon];
+    }
+    if ((self.labelTwo.text == self.labelFive.text) && (self.labelFive.text == self.labelEight.text))
+    {
+        [self youWon];
+    }
+    if ((self.labelThree.text == self.labelSix.text) && (self.labelSix.text == self.labelNine.text))
+    {
+        [self youWon];
+    }
+    if ((self.labelOne.text == self.labelFive.text) && (self.labelFive.text == self.labelNine.text))
+    {
+        [self youWon];
+    }
+    if ((self.labelThree.text == self.labelFive.text) && (self.labelFive.text == self.labelSeven.text))
+    {
+        [self youWon];
+    }
+}
 
 //When I Tap, the point will be saved in tappedPoint
 //tappedPoint will then be send to the findLabelUsingPoint method
@@ -80,8 +114,11 @@
     [self findLabelUsingPoint:tappedPoint];
 }
 
-
-
+//You Won Method
+- (void) youWon
+{
+    NSLog(@"youWon");
+}
 
 
 
