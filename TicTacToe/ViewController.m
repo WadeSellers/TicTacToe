@@ -29,6 +29,7 @@
     [super viewDidLoad];
 
     self.theCurrentPlayer.text = @"X";
+    [self.theCurrentPlayer setTextColor:[UIColor redColor]];
 
     self.labels = [NSArray arrayWithObjects:
                         self.labelOne,
@@ -52,19 +53,24 @@
     {
         if (CGRectContainsPoint(label.frame, tappedPoint))
         {
+            label.textColor = self.theCurrentPlayer.textColor;
             label.text = self.theCurrentPlayer.text;
             if ([self.theCurrentPlayer.text isEqualToString:@"X"])
             {
+                [self.theCurrentPlayer setTextColor:[UIColor blueColor]];
                 self.theCurrentPlayer.text = @"O";
             }
             else
             {
+                [self.theCurrentPlayer setTextColor:[UIColor redColor]];
                 self.theCurrentPlayer.text = @"X";
             }
         }
 
     }
 }
+
+
 
 //When I Tap, the point will be saved in tappedPoint
 //tappedPoint will then be send to the findLabelUsingPoint method
