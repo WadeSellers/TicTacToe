@@ -59,16 +59,38 @@
 
 }
 
+//This will look at the currentPlayer and reverse the number and color which creates the idea of changing player
+- (void) loseTurn
+{
+    if ([self.theCurrentPlayer.text isEqualToString:@"X"])
+    {
+        [self.theCurrentPlayer setTextColor:[UIColor redColor]];
+        self.theCurrentPlayer.text = @"O";
+    }
+    else
+    {
+        [self.theCurrentPlayer setTextColor:[UIColor blueColor]];
+        self.theCurrentPlayer.text = @"X";
+    }
+}
+
 - (void) countdownTimer
 {
+
+    for (i = 11; i >= 11; i--)
+    {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimerMethod) userInfo:nil repeats:YES];
+    }
 }
 
 - (void) updateTimerMethod
 {
-    int timerTracker = 10;
-    self.timerLabel.text = [NSString stringWithFormat:@"%d", timerTracker];
-    timerTracker--;
+    self.timerLabel.text = [NSString stringWithFormat:@"%d", i--];
+    if (i == -1)
+    {
+        [self loseTurn];
+        [self.timer invalidate];
+    }
 
 }
 
