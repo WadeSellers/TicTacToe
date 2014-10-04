@@ -19,7 +19,18 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelEight;
 @property (weak, nonatomic) IBOutlet UILabel *labelNine;
 @property (weak, nonatomic) IBOutlet UILabel *theCurrentPlayer;
+@property (weak, nonatomic) IBOutlet UILabel *letterXLabel;
+@property (weak, nonatomic) IBOutlet UILabel *letterOLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+
 @property NSArray *labels;
+@property NSArray *letterLabels;
+
+UILabel *progress;
+NSTimer *timer;
+int currSeconds;
+
+
 @end
 
 @implementation ViewController
@@ -31,6 +42,10 @@
     self.theCurrentPlayer.text = @"X";
     [self.theCurrentPlayer setTextColor:[UIColor blueColor]];
 
+    self.letterLabels = [NSArray arrayWithObjects:
+                         self.letterOLabel,
+                         self.letterXLabel, nil];
+
     self.labels = [NSArray arrayWithObjects:
                         self.labelOne,
                         self.labelTwo,
@@ -41,6 +56,7 @@
                         self.labelSeven,
                         self.labelEight,
                         self.labelNine, nil];
+
 }
 
 //We are going to use fast enumeration to go through the array of UILabels and check each one to
@@ -71,6 +87,21 @@
         //[self didYouWin];
     }
 }
+
+- (void) findLetterLabels:(CGPoint)panGesturePoint
+{
+    for(UILabel *label in self.letterLabels)
+    {
+        if (CGRectContainsPoint(label.frame, panGesturePoint))
+        {
+            label.center = panGesturePoint;
+        }
+    }
+
+}
+
+
+
 
 - (void) didYouWin
 {
@@ -115,6 +146,28 @@
     CGPoint tappedPoint = [tapGesture locationInView:self.view];
     [self findLabelUsingPoint:tappedPoint];
 }
+
+- (IBAction)onPanSwipe:(UIPanGestureRecognizer *)panGesture {
+    CGPoint panGesturePoint = [panGesture locationInView:self.view];
+    [self findLetterLabels:panGesturePoint];
+
+    /*
+    if (panGesture.state == UIGestureRecognizerStateEnded) {
+        [UIView animateWithDuration:1.0 animations:^{
+            self.theFuture.center = self.originalCenter;
+            self.theFuture.backgroundColor = [UIColor greenColor];
+        }];
+    } else {
+
+        if (CGRectContainsPoint(self.thePreCogs.frame, point)) {
+            self.theFuture.backgroundColor = [UIColor redColor];
+            self.theFuture.text = @"A ficticious and incriminating future";
+            [self.theFuture sizeToFit];
+        }
+    }
+     */
+}
+
 
 - (void) youWon
 {
