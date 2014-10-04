@@ -26,9 +26,7 @@
 @property NSArray *labels;
 @property NSArray *letterLabels;
 
-UILabel *progress;
-NSTimer *timer;
-int currSeconds;
+@property NSTimer *timer;
 
 
 @end
@@ -56,6 +54,21 @@ int currSeconds;
                         self.labelSeven,
                         self.labelEight,
                         self.labelNine, nil];
+
+    [self countdownTimer];
+
+}
+
+- (void) countdownTimer
+{
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimerMethod) userInfo:nil repeats:YES];
+}
+
+- (void) updateTimerMethod
+{
+    int timerTracker = 10;
+    self.timerLabel.text = [NSString stringWithFormat:@"%d", timerTracker];
+    timerTracker--;
 
 }
 
@@ -150,6 +163,7 @@ int currSeconds;
 - (IBAction)onPanSwipe:(UIPanGestureRecognizer *)panGesture {
     CGPoint panGesturePoint = [panGesture locationInView:self.view];
     [self findLetterLabels:panGesturePoint];
+
 
     /*
     if (panGesture.state == UIGestureRecognizerStateEnded) {
