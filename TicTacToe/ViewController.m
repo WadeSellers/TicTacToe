@@ -138,6 +138,7 @@
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (alertView.tag == 100) {
         [self resetTheBoard];
+        [self resetTheColor];
     }
 }
 
@@ -155,7 +156,16 @@
     self.theCurrentPlayer.text = @"X";
 }
 
-
+- (void) resetTheColor
+{
+    if ([self.theCurrentPlayer.text isEqualToString:@"X"]) {
+        self.theCurrentPlayer.textColor = [UIColor blueColor];
+    }
+    else
+    {
+        self.theCurrentPlayer.textColor = [UIColor redColor];
+    }
+}
 
 
 
